@@ -92,7 +92,7 @@ $query->execute();
 
 while($row = $query->fetch(PDO::FETCH_ASSOC)){  
  
-echo "<li>" . $row['ime'] . " " .  "</li>"; 
+echo "<li>" . $row['ime'] . " " . "<a href='add.php?a=$row[ime]&b=$n[ime]'>add</a>" . "</li>"; 
 }
 
 }					
@@ -144,9 +144,9 @@ $query->execute();
 
 while($row = $query->fetch(PDO::FETCH_ASSOC)){  
  if($n['ime']==$row['prijatelstvoOD'])
-echo "<li>" . $row['prijatelstvoKON'] . " " . "</li>"; 
+echo "<li>" . $row['prijatelstvoKON'] . " " . "<a href='delete.php?a=$row[prijatelstvoKON]&b=$n[ime]''>delete</a>" . "</li>"; 
 if($n['ime']==$row['prijatelstvoKON'])
-	echo "<li>" . $row['prijatelstvoOD'] . " " .  "</li>"; 
+	echo "<li>" . $row['prijatelstvoOD'] . " "  . "<a href='delete.php?a=$row[prijatelstvoOD]&b=$n[ime]''>delete</a>" . "</li>"; 
 }	
 
 	
