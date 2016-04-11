@@ -81,8 +81,7 @@ echo "<table>";
 					
 			while($row = $query->fetch(PDO::FETCH_ASSOC)){  
  echo "<tr>";
- echo "<td>";echo $row['ime'];echo "</td>";
- echo "<td>";?><a href="<?php echo $row['korisnik'];?>">Download</a><?php echo "</td>";
+ echo "<td>";echo $row['ime'] . " " .$row['kreiranje'] . " " . $row['korisnik'] . " ";?><a href="<?php echo $row['korisnik'];?>">Download</a><?php echo "</td>";
  echo "</tr>";
 
  
@@ -99,7 +98,7 @@ echo "<table>";
                     
                     <div class="row">
 						<div class="12u">
-							<div id="copyright"> Blagoja Trajkovski | Design: <a href="#">HTML5 UP</a> |</div>
+							<div id="copyright"> Blagoja Trajkovski | Design:HTML5 UP |</div>
 						</div>
 					</div>
 				</footer>

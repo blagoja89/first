@@ -39,9 +39,11 @@
 							</div>
 							<nav id="nav">
 								<ul>
-									<li><a href="Home.php">Home</a></li>
+									
+									
+									<li><a href="Friendship.php">Back</a></li>
 									<li><a href="Directories.php">Directories</a></li>
-									<li><a href="Logout.php">Log out!</a></li>
+									<li><a href="Upload.php">Upload</a></li>
 									<li></li>
 								</ul>
 							</nav>
@@ -56,11 +58,13 @@
 						
 						<div class="3u">
 							<section>
-								<h2>Add friend</h2>
+								<h2>Your directories</h2>
 								<ul class="link-list">
+								
+
 								<?php
 								session_start();
-if(!isset($_SESSION["sess_user"])){
+								if(!isset($_SESSION['sess_user'])){
 	header("location:Log.php");
 } else {
 								try{
@@ -71,36 +75,26 @@ $handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 catch(PDOException $e){
 echo $e->getMessage();
 die();}
-$sql="SELECT * FROM korisnici WHERE kime=?";
+
+$sql="SELECT * FROM datoteki";
 $query=$handler->prepare($sql);
 
-$query->bindParam(1,$_SESSION["sess_user"]);
+
 $query->execute();
+					
+echo "<table>";
+					
+			while($row = $query->fetch(PDO::FETCH_ASSOC)){  
+			if($row['ime']==$_SESSION['sess_user']){
+ echo "<tr>";
+ echo "<td>";echo $row['ime'] . " " . $row['korisnik'] .  " " . "<a href='deleteDir.php?a=$row[korisnik]'>delete</a>" . "</td>";
+ echo "</tr>";
 
-
-$n=$query->fetch(PDO::FETCH_ASSOC);
-
-$sql="SELECT ime FROM korisnici WHERE ime NOT IN (SELECT k.ime FROM korisnici as k, prijatelstva as p WHERE (k.ime=p.prijatelstvoOD AND p.prijatelstvoKON=?) OR (k.ime=p.prijatelstvoKON AND p.prijatelstvoOD=?)) AND ime!=? ";
-$query=$handler->prepare($sql);
-
-$query->bindParam(1,$n['ime']);
-$query->bindParam(2,$n['ime']);
-$query->bindParam(3,$n['ime']);
-$query->execute();
-
-
-
-while($row = $query->fetch(PDO::FETCH_ASSOC)){  
- 
-echo "<li>" . $row['ime'] . " " . "<a href='add.php?a=$row[ime]&b=$n[ime]'>add</a>" . "</li>"; 
-}
-
+			}
 }					
+echo "</table>";
+}				
 								?>
- 
-
-
-
 	
 
 
@@ -108,56 +102,10 @@ echo "<li>" . $row['ime'] . " " . "<a href='add.php?a=$row[ime]&b=$n[ime]'>add</
 							</section>
 						</div>
 											</div>				
-                    <a href="Upload.php"> Upload file </a>
-					<div class="row">
-						<div class="3u">
-							<section>
-								<h2>List of friends</h2>
-								<?php
-								
-if(!isset($_SESSION["sess_user"])){
-	header("location:Log.php");
-} else {
-								try{
-$handler=new PDO('mysql:host=127.0.0.1;dbname=feitdb','root','');
-$handler->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
-}
-catch(PDOException $e){
-echo $e->getMessage();
-die();}
-
-$sql="SELECT * FROM korisnici WHERE kime=?";
-$query=$handler->prepare($sql);
-
-$query->bindParam(1,$_SESSION["sess_user"]);
-$query->execute();
-
-
-$n=$query->fetch(PDO::FETCH_ASSOC);
-
-
-$sql = "SELECT * FROM prijatelstva"; 
-$query=$handler->prepare($sql);
-
-$query->execute();
-
-while($row = $query->fetch(PDO::FETCH_ASSOC)){  
- if($n['ime']==$row['prijatelstvoOD'])
-echo "<li>" . $row['prijatelstvoKON'] . " " . "<a href='delete.php?a=$row[prijatelstvoKON]&b=$n[ime]'>delete</a>" . "</li>"; 
-if($n['ime']==$row['prijatelstvoKON'])
-	echo "<li>" . $row['prijatelstvoOD'] . " "  . "<a href='delete.php?a=$row[prijatelstvoOD]&b=$n[ime]'>delete</a>" . "</li>"; 
-}	
-
-	
-}							
-								?>
-							</section>
-						</div>
-					</div>
+                    
                     <div class="row">
 						<div class="12u">
-							<div id="copyright"> Blagoja Trajkovski | Design: HTML5 UP |</div>
+							<div id="copyright"> Blagoja Trajkovski | Design:HTML5 UP |</div>
 						</div>
 					</div>
 				</footer>

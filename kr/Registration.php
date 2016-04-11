@@ -55,8 +55,8 @@
 <input type="text" placeholder="Name" name="ime" class="text"/>
    <input type="text" placeholder="Last name" name="prezime" class="text"/>
     <input type="text" placeholder="Username" name="kime" class="text"/>
-     <input type="text" placeholder="Password" name="lozinka" class="text"/>
-      <input type="text" placeholder="Confirm password" name="lozinkapak" class="text"/>
+     <input type="password" placeholder="Password" name="lozinka" class="text"/>
+      <input type="password" placeholder="Confirm password" name="lozinkapak" class="text"/>
        <input type="text" placeholder="Date of birth" name="datumR" class="text"/>
         <input type="text" placeholder="Adress" name="adresa" class="text"/>
          <input type="text" placeholder="Profession" name="profesija" class="text"/>
@@ -85,10 +85,14 @@ $query->bindParam(1,$_POST['kime']);
 $query->bindParam(2,$_POST['lozinka']);
 $query->execute();
 
+if($_POST['lozinka']!=$_POST['lozinkapak'])
+	echo "Retype password";
+else{
 
 if($query->rowCount()==1){
 	echo "That username already exists! Please try again with another.";
 }else{
+	
 $sql="INSERT INTO korisnici(ime,prezime,kime,lozinka,datumR,adresa,profesija,email) VALUES(?,?,?,?,?,?,?,?)";
 $query=$handler->prepare($sql);
 
@@ -108,7 +112,7 @@ if($query){
 	} else {
 	echo "Failure!";
 	}
-
+}
 }
 
 
