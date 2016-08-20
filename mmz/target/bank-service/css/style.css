@@ -1,0 +1,383 @@
+html {
+	background:url(../images/bg6.jpg) 0 0 repeat ;
+}
+
+body {
+    color: black;
+    font: 14px Georgian, serif;
+    width:1350px;
+    position:relative;
+    margin: auto;
+}
+
+a {
+	text-decoration: none;
+ 	color: black;
+}
+
+a:hover {
+	color: red;
+	font-weight: bolder;
+}
+
+a.act {
+	color: blue;
+}
+
+
+div.row {
+	margin-bottom: 20px; 
+}
+
+div.span{
+	float:left;
+}
+
+div.span1 {
+	float: right;
+}
+
+header.header {
+	width: 1150px;
+	margin-left: 100px;
+}
+
+div.language {
+	display: block;
+	float: left;
+	height: auto;
+	width: 50px;
+	padding: 0 10px 0 10px;
+}
+
+#notify {
+	text-decoration: underline;
+	height: auto;
+	width: 250px;
+	padding: 0 10px 0 10px;
+}
+
+#notify li {
+	display: block;
+	float: left;
+	height: 40px;
+	line-height: 26px;
+	list-style: none outside none;
+}
+
+#menu {
+	width:1150px;
+    margin-left: 350px;
+}
+
+#menu li {
+	border:2px solid #666;
+	border-radius:10px;
+	display: block;
+	float: left;
+	height: 26px;
+	min-width: 90px;
+	padding: 5px 5px 5px 5px;
+	text-align: center;
+	margin-right:10px;
+	line-height: 26px;
+	list-style: none outside none;
+	font-size: 16px;
+}
+#menu li form {
+	margin-bottom:0;
+}
+li.adminMenu{
+	float: right;
+	display: block;
+	padding: 5px;
+	margin-right:50px;
+	line-height: auto;
+	list-style: none outside none;
+}
+li.separator {
+	height: 40;
+	padding: 0 5px 0 5px;
+}
+
+#logo {
+	padding: 0 20px 0 20px;
+	height: auto;
+	width: 180px;
+}
+
+#adminLogo {
+	padding: 0 20px 0 20px;
+	height: auto;
+	width: 180px;
+}
+
+#name {
+	padding: 30px 30px 30px 30px;
+	height: auto;
+	width: 430px;
+	text-align: center;
+	font-size: 26px;
+}
+
+#contacts {
+	padding: 10px 20px 10px 20px;
+	height: auto;
+	width: 180px;
+}
+
+#phone {
+	font-size: 18px;
+	color: red;
+}
+
+#clock {
+	padding-top: 10px;
+	font-size: 12px;
+}
+
+#mail {
+	padding-top: 10px;
+	font-size: 12px;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 175px;
+}
+
+table.loginForm {
+	width: 310px;
+	color: black;
+	float: none;
+	border: 2px solid black;
+	align: middle;
+	cellpadding: 0;
+	cellspacing: 0;
+	padding: 50px 150px 0 0;
+	margin: 40px 90px;
+	
+}
+
+td.loginForm1 {
+	width: 80px;
+	padding: 10px 10px 10px 10px;
+}
+
+td.loginForm2 {
+	width: 100px;
+	padding: 10px 10px 10px 10px;
+}
+
+#cart {
+	text-decoration: underline;
+	font-size: 16px;
+}
+
+div.class1 {
+	text-align: center;
+	font-size: 12px;
+}
+
+div.class2 {
+	text-align: left;
+	font-size: 12px;
+}
+
+
+#leftside {
+	background:url(../images/mmz.png) 0 0 no-repeat;
+	width: 373px;
+	height: 287px;
+	margin: 0;
+	padding: 0;
+}
+
+#leftside1 {
+	width: 150px;
+	position: fixed;
+	bottom: 10px;
+	left: 50px;
+}
+
+div.middle {
+	width: 650px;
+	overflow: auto;
+	padding-left: 10px;
+	float: left;
+}
+
+#registration {
+	float: left;
+	font-size: 10px;
+	width: 105px;
+	padding: 0 5px 0 5px;
+}
+
+#recover {
+	float: right;
+	font-size: 10px;
+	width: 80px;
+	padding: 0 5px 0 5px;
+}
+
+loginForm3 {
+	padding: 30px 10px 20px 40px;	
+}
+
+#rightside li {
+	padding: 20px 10px 10px 10px;
+}
+
+div.footer {
+	margin-left: 450px;	
+}
+
+.footer li {
+	border-right: 1px solid black;
+	float: left;
+	height: auto;
+	list-style: none outside none;
+	margin: 30px 0 15px;
+	padding: 0 10px;
+	width: auto;
+}
+
+#bottom {
+	font-family: monospace;
+	font-size: 10px;
+	height: 15px;
+	margin-left: 200px;
+}
+
+form button {
+	padding:0;
+	border:none;
+	background:transparent;
+}
+
+td.image{
+	max-width: 200px;
+	min-height: 150px;
+	padding: 5px;
+}
+td.product{
+	text-align: justify;
+}
+
+td.productName{
+	padding: 0 5px 0 5px;
+	text-align: left;
+	font-family: fantasy;
+	font-size: 30px;
+	font-style: italic;
+	font-weight: bolder;
+}
+
+td.price{
+	font-family: monospace;
+	font-size: 30px;
+	font-style: italic;
+}
+
+table.catalog{
+	margin-top: 100px;
+	border-collapse: separate;
+	border-style: double;
+	border-spacing: 2px 4px;
+	width: 800px;
+	
+}
+
+div.select{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+div.catalogLeft{
+	background:url(../images/mmz.png) 0 0 repeat ;
+	width: 100px;
+	float: left;
+}
+div.welcome{
+	text-align: center;
+	padding-top: 20px;
+}
+
+li.mainMenu{
+	
+	font-size: 25px;
+	font-family: monospace;
+	font-weight: bold;
+	margin: 10px 0 10px 100px;
+}
+li.submenu{
+	font-size: 20px;
+	font-family: cursive;
+	margin: 5px 0 5px 120px;
+}
+
+div.line{
+	margin: 50px 0 30px 0;
+}
+td.adminForm1{
+	min-width: 200px;
+	margin: 5px 5px 5px 0;
+	padding: 10px 10px 10px 0;
+}
+
+table.results{
+	align: center;
+	table-layout: auto;
+	overflow: auto;
+	width: 800px;
+	cellpadding: 5px;
+	cellspacing: 5px;
+	border: double;
+	border-spacing: 2px;
+}
+
+table.profile{
+	align: center;
+	width: 300px;
+	overflow: auto;
+	padding-left: 200px;
+}
+
+div.line-through{
+	text-decoration: line-through;
+	font-size: 12px;
+}
+
+div.halfwidth{
+	width: 70%;
+	font-size: 14px;
+	font-style: italic;
+	line-height: 20px;
+	margin: 10px 0 10px 0;
+	font-weight: normal;
+}
+
+div.order{
+	float: left;
+	width: 800 px;
+	margin: 100px 20px 0 120px;
+}
+div.label{
+	float: left;
+	width: 80px;
+	
+}
+ul.delivery-form, ul.payment-form{
+	text-align: left;
+	font-size: 18px;
+	list-style-type: none;
+	
+}
+
+li.delivery, li.payment{
+	border-bottom: 1px solid grey;
+	font-weight: bolder;
+}
+

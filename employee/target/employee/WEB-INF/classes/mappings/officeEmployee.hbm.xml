@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="by.mavs.employee.model.beans.OfficeEmployee" table="OFFICE_EMPLOYEE">
+		<id name="id" type="int">
+			<column name="ID_OFFICE_EMPLOYEE" />
+				<generator class="sequence">
+				<param name="sequence">OFFICE_EMPLOYEE_SEQ</param>
+			</generator>
+		</id>
+		<many-to-one name="office" class="by.mavs.employee.model.beans.Office"
+			column="OFFICE_ID" fetch="join" lazy="false"></many-to-one>
+		<many-to-one name="position" class="by.mavs.employee.model.beans.Position"
+			column="POSITION_ID" fetch="join" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

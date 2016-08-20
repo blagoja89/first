@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="Guestbook:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Guestbook_ejb_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Guestbook/ejb/EJB" />
+      <element id="module-output" name="Guestbook" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,72 @@
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+	<fmt:setBundle basename="property.messages" />
+	<fmt:setLocale value="${language}" scope="session" />
+
+	<header class="header">
+		<div class="row">
+			<div class="span1" style="width: 800px">
+				<ul>
+					<li class="adminMenu">
+						<form method="POST" action="Controller">
+							<input type="hidden" name="command" value="page" /> <input
+								type="hidden" name="pageName" value="HOME_PAGE" />
+							<c:set var="returnVar">
+								<fmt:message key="to.home.page" />
+							</c:set>
+							<input type="submit" name="SUBMIT" value="${returnVar}" />
+						</form>
+
+					</li>
+					<li class="adminMenu">
+						<form method="POST" action="Controller">
+							<input type="hidden" name="command" value="page" /> <input
+								type="hidden" name="pageName" value="ADMIN_PAGE_PATH" />
+							<c:set var="returnVar1">
+								<fmt:message key="to.admin.page" />
+							</c:set>
+							<input type="submit" name="SUBMIT" value="${returnVar1}" />
+						</form>
+
+					</li>
+					<li class="adminMenu"><span class="language">
+							<form method="POST" action="Controller" accept-charset="UTF-8">
+								<input type="hidden" name="command" value="language" /> <input
+									type="hidden" name="language" value="EN" /> <input
+									type="hidden" name="pageName"
+									value="${pageContext.request.requestURI}" />
+								<button type="submit" name="Submit">
+									<img alt="English" src="images/en.gif" />
+								</button>
+							</form>
+					</span></li>
+					<li class="adminMenu"><span class="language">
+							<form method="POST" action="Controller" accept-charset="UTF-8">
+								<input type="hidden" name="command" value="language" /> <input
+									type="hidden" name="language" value="RU" /> <input
+									type="hidden" name="pageName"
+									value="${pageContext.request.requestURI}" />
+								<button type="submit" name="Submit">
+									<img alt="Russish" src="images/ru.gif" />
+								</button>
+							</form>
+					</span></li>
+
+				</ul>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<div class="row">
+			<div class="welcome">
+				<h1>
+					<fmt:message key="welcome.admin" />
+
+				</h1>
+			</div>
+
+		</div>
+		<div style="clear: both"></div>
+	</header>
+
+</jsp:root>

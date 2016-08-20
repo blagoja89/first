@@ -1,0 +1,108 @@
+<%@page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@page import="java.util.*"%>
+<%@page isELIgnored = "false" %>
+<fmt:setBundle basename="property.messages" />
+<fmt:setLocale value="${language}" scope="session" />
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+	
+</head>
+	
+	<header class="header">
+		<img src="images/logo.jpg" />
+		<div class="row">
+			<div id="notify" class="span1" style="width: auto">
+				<ul>
+					<li><%@ include file="/jspf/language.jspf"%></li>
+				<li><c:if test="${accessLevel == null}">
+							<form method="POST" action="Controller" accept-charset="UTF-8" name="h1">
+								<input type="hidden" name="command" value="page" /> 
+								<input type="hidden" name="pageName" value="AUTHORIZATION_PAGE_PATH" />
+								<a rel="nofollow" href="JavaScript:document.h1.submit()"> <fmt:message key="authorization" />
+								</a>
+							</form>
+						</c:if> <c:if test="${accessLevel == 1}">
+							<form method="POST" action="Controller"
+								accept-charset="UTF-8" name="h2">
+								<input type="hidden" name="command" value="page" /> <input
+									type="hidden" name="pageName" value="PROFILE_PAGE_PATH" /> <a
+									rel="nofollow" href="JavaScript:document.h2.submit()">
+									${userLogin} </a>
+							</form>
+						</c:if> <c:if test="${accessLevel == 2}">
+							<form method="POST" action="Controller"
+								accept-charset="UTF-8" name="h3">
+								<input type="hidden" name="command" value="admin" /> 
+								<input type="hidden" name="admin" value="init" />
+								 <a	rel="nofollow" href="JavaScript:document.h3.submit()"> <fmt:message
+										key="admin" />
+								</a>
+							</form>
+						</c:if></li>
+					<li class="separator"></li>
+					<li>
+						<c:if test="${accessLevel == null}">
+							<form method="POST" action="Controller" accept-charset="UTF-8" name="h4">
+								<input type="hidden" name="command" value="page" />
+								<input type="hidden" name="pageName" value="REGISTRATION_PAGE_PATH" />
+								<a rel="nofollow" href="JavaScript:document.h4.submit()">
+									<fmt:message key="registration" />
+								</a>
+							</form>
+						</c:if>
+						<c:if test="${accessLevel != null}">
+							<form method="POST" action="Controller" accept-charset="UTF-8"
+								name="h5">
+								<input type="hidden" name="command" value="logout" /> <a
+									rel="nofollow" href="JavaScript:document.h5.submit()"> <fmt:message
+										key="logout" />
+								</a>
+							</form>
+						</c:if></li>
+
+				</ul>
+			</div>
+			<div class="span">
+				<c:if test="${accessLevel == null || accessLevel == 0 }">
+					<h4>GUEST</h4>
+				</c:if>
+				<c:if test="${accessLevel == 1 }">
+					<h4>USER</h4>
+				</c:if>
+				<c:if test="${accessLevel == 2 }">
+					<h4>ADMIN</h4>
+				</c:if>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+		<div class="row">
+			<div id="logo" class="span">
+				<form method="POST" action="Controller" accept-charset="UTF-8">
+					<input type="hidden" name="command" value="page" /> <input
+						type="hidden" name="pageName" value="HOME_PAGE" />
+					<button type="submit" name="Submit">
+						<img src="images/home.png" />
+					</button>
+				</form>
+			</div>
+			<div id="name" class="span">
+				<fmt:message key="bank-service" />
+
+			</div>
+			<div id="contacts" class="span">
+				<div id="phone">
+					<br/> <span>(017) 266-15-35</span>
+				</div>
+				<div id="mail">
+				<c:set var="email" value="myrws@rws.by"/> 
+				</div>
+			</div>
+		</div>
+		<div style="clear: both"></div>
+
+	</header>

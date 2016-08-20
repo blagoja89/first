@@ -1,0 +1,80 @@
+<div  class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="my-controller">
+                <h1>Employees list</h1>
+
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h3>Employees Page: {{ currentPage }}</h3>
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="search">Search in current page:</label>
+                        <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+                    </div>
+                    <div class="col-xs-4">
+                        <label for="itemsPerPageInput">Items per page:</label>
+                        <input id="itemsPerPageInput" type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+                    	<p id="messageError" ></p>
+                    </div>
+                    
+                </div>
+                <br>
+				<div class="other-controller">
+					<div class="text-center">
+				
+						<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"
+							template-url="ui/tpl/dirPagination.tpl.html"></dir-pagination-controls>
+								<div class="col-xs-3">
+                       		 		<label for="goToPage">Go to page:</label>
+                        			<input id="goToPage" type="number" min="1" max="100" class="form-control" ng-model="currentPage">
+                   				 </div>
+					</div>
+				</div>
+				
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+					<table class="table table-hover">
+				<tr>
+					<th>ID</th>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Address</th>
+					<th>City</th>
+					<th>County</th>
+					<th>Offices</th>
+				</tr>
+                            <tr dir-paginate="employee in employees | filter:q | itemsPerPage: pageSize" 
+                            current-page="currentPage">
+                            <td>{{employee.id}}</td>
+						<td>{{employee.firstName}}</td>
+						<td>{{employee.lastName}}</td>
+						<td>{{employee.address.name}}</td>
+						<td>{{employee.address.city.name}}</td>
+						<td>{{employee.address.city.country.name}}</td>
+						
+				<td ng-repeat="oe in employee.officeEmployees">
+				<ul>
+							<li>{{oe.position.name}}</li>
+							<li>{{oe.office.company.name}}</li>
+							<li>{{oe.office.address.name}}</li>
+							<li>{{oe.office.address.city.name}}</li>
+							<li>{{oe.office.address.city.country.name}}</li>
+							<li>{{oe.office.employeesNumber}}</li>
+					</ul>	</td>
+						
+                            </tr>
+					</table>
+                </div>
+            </div>
+            <div class="other-controller">
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="ui/tpl/dirPagination.tpl.html"></dir-pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
