@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="oracleSessionFactory">
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="hibernate.connection.username">system</property>
+		<property name="hibernate.connection.password">root</property>
+		
+<!-- 		<property name="hibernate.cache.provider_class">net.sf.ehcache.hibernate.Provider</property> -->
+
+		<!-- Translation API -->
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+		<!-- Hibernate Optional Configuration Properties -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.connection.pool_size">20</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+
+<!-- 		<property name="hibernate.c3p0.min_size">5</property> -->
+<!-- 		<property name="hibernate.c3p0.max_size">20</property> -->
+<!-- 		<property name="hibernate.c3p0.timeout">300</property> -->
+<!-- 		<property name="hibernate.c3p0.max_statements">50</property> -->
+<!-- 		<property name="hibernate.c3p0.idle_test_period">3000</property> -->
+
+		<mapping resource="mappings/address.hbm.xml"></mapping>
+		<mapping resource="mappings/city.hbm.xml"></mapping>
+		<mapping resource="mappings/country.hbm.xml"></mapping>
+		<mapping resource="mappings/company.hbm.xml"></mapping>
+		<mapping resource="mappings/employee.hbm.xml"></mapping>
+		<mapping resource="mappings/office.hbm.xml"></mapping>
+		<mapping resource="mappings/officeEmployee.hbm.xml"></mapping>
+		<mapping resource="mappings/position.hbm.xml"></mapping>
+
+
+
+	</session-factory>
+</hibernate-configuration>

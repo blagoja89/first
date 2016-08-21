@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="by.mavs.employee.model.beans.City" table="CITY">
+		<id name="id" type="int">
+			<column name="ID_CITY" />
+			<generator class="sequence">
+				<param name="sequence">CITY_SEQ</param>
+			</generator>
+		</id>
+		<property name="name" column="NAME" />
+		<many-to-one name="country" class="by.mavs.employee.model.beans.Country"
+			fetch="join" lazy="false">
+			<column name="COUNTRY_ID" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

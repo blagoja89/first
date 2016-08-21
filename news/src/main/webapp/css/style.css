@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header, .sidebar, .content, .footer {
+    padding: 10px; /* Поля */
+    border: solid 1px #000; /* Параметры рамки */
+}
+.header { /* Верхняя часть с заголовком */
+    font-size: 20px; /* Размер шрифта */
+    font-family: Arial;
+}
+
+#headtitle{
+    font-size: 24px;
+}
+.layout {
+    margin: 15px 0; /* Отступы сверху и снизу */
+    overflow: hidden; /* Отменяем действие float */
+    min-width: 800px; /* Минимальная ширина */
+}
+.sidebar { /* Навигация по сайту */
+    width: 200px; /* Ширина меню */
+    float: left; /* Состыковка с другим слоем по горизонтали */
+    background-color: #a4a4a4;
+    padding-left: 2px;
+}
+
+#menuTitle{
+    background-color:  #7E7E7E;
+    text-align: center;
+    color:#ffffff;
+}
+
+#menuInner{
+    background-color:  #ffffff;
+    text-align: left;
+    width: 160px;
+    float:right;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-left: 15px
+}
+#menuInner ul {
+    list-style-type: circle;
+    list-style-position:inside;
+}
+li{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: blue;
+}
+
+
+.content { /* Основное содержание страницы */
+    margin-left: 235px; /* Отступ слева */
+}
+
+#languagebar{
+    float: right;
+}
+
+.footer{
+    text-align: center;
+}
+
+#delete_button{
+    text-align: right;
+}
+
+.news{
+    width: 100%; /* Ширина меню */
+}
+
+.myButton {
+    border-radius: 5px;
+    border: 2px solid #6495ED;
+    background-color: #ffffff;
+    padding: 2px 15px 2px 15px;
+}
+#headtitle a{
+    text-decoration: none;
+}
+
+.breadcrumb{
+    font-size: 20px;
+    margin-bottom: 10px;
+}

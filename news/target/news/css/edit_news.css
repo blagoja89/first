@@ -1,0 +1,38 @@
+input{
+    margin-bottom: 20px;
+}
+textarea{
+    margin-bottom: 20px;
+}
+label.error{
+    margin-bottom:-10px;
+    margin-top:-10px;
+    color: #D44950;
+    vertical-align: top;
+}
+.lab{
+    float: left;
+}
+.cont{
+    margin-left: 150px;
+}
+
+#title{
+    width: 600px;
+}
+
+#content{
+    width: 650px;
+}
+
+#brief{
+    width: 650px;
+}
+
+#buttonBar{
+    text-align:center;
+}
+
+#error{
+    background: red;
+}

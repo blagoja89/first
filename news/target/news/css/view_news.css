@@ -1,0 +1,19 @@
+#buttons{
+    float: right;
+}
+.lab{
+    float: left;
+    color: gray;
+}
+.cont{
+    margin-left: 150px;
+    
+}
+
+#buttonsBar{
+    text-align:right;
+}
+#buttonsBar .myButton{
+    float: right;
+    margin: 5px;
+}

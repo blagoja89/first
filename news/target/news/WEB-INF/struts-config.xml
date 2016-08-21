@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="newsForm" type="by.mavs.news.presentation.form.NewsForm"/>
+    </form-beans>
+
+    <global-exceptions>
+        <exception key="error.message" type="java.lang.Exception"
+                handler="by.mavs.news.exception.MyExceptionHandler" path="/jsp/error/error.jsp" />
+    </global-exceptions>
+
+    <action-mappings>
+        <action path="/newsAction" name="newsForm" type="org.springframework.web.struts.DelegatingActionProxy" parameter="method">
+            <forward name="successList" path="list"/>
+            <forward name="successDelete" path="/newsAction.do?method=list" redirect="true"/>
+            <forward name="successView" path="view"/>
+            <forward name="successEdit" path="addEdit"/>
+            <forward name="successSave" path="/newsAction.do?method=view" redirect="true"/>
+            <forward name="successAdd" path="addEdit"/>
+            <forward name="successEr" path="addEdit"/>
+        </action>
+        
+       <action
+            path="/Locale" type="org.springframework.web.struts.DelegatingActionProxy" 
+            	parameter="method" name="newsForm" >
+        <forward name="success" path="/newsAction.do?method=list"/>
+   		</action>
+    </action-mappings>
+
+    <message-resources parameter="by.mavs.news.properties.messages" />
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+    </plug-in>
+    
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation" value="/WEB-INF/spring-config.xml"/>
+    </plug-in>
+
+</struts-config>
